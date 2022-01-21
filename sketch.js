@@ -35,17 +35,23 @@ function setup() {
   myp =createP("grains to add: "+sandSlider.value())
   cntrGrains =createP("#grains in center: "+sandpiles[col/2][row/2]);
   speedslide = createSlider(1,100,1);
+  speedslide.style('width','200px');
+  speedslide.changed(amtspeed);
   showspeed = createP("speed: "+speedslide.value());
 }
 
 function draw() {
   background(0);
+
   showIt();
+  for(let s=0; s<speedslide.value();s++){
+  
   if (torusTick.checked()){
   toppleTorus();
   }else{
     topple();
   }
+ }
 }
 
 
@@ -134,8 +140,14 @@ function clearit(){
 function amtSand(){
   
   myp.html("grains to add: "+sandSlider.value());
+
 }
 
+function amtspeed(){
+  
+  showspeed.html("speed: "+speedslide.value());
+  
+}
 
 function twoDee(col, row,data){
   // makes a two 2 array fills it with data and returns it
