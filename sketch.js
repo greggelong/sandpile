@@ -10,6 +10,8 @@ let sandslider;
 let sandamout;
 let myp;
 let cntrGrains;
+let speedslide;
+let showspeed;
 
 
 function setup() {
@@ -32,6 +34,8 @@ function setup() {
   clearbutton.mousePressed(clearit);
   myp =createP("grains to add: "+sandSlider.value())
   cntrGrains =createP("#grains in center: "+sandpiles[col/2][row/2]);
+  speedslide = createSlider(1,100,1);
+  showspeed = createP("speed: "+speedslide.value());
 }
 
 function draw() {
